@@ -1,0 +1,65 @@
+li {
+    list-style: none;
+}
+
+.title {
+  width: 100%;
+}
+
+.competencies {
+  display: flex;
+}
+
+.competencies > li {
+  display: inline;
+}
+
+.photo {
+  border-radius: 100%;
+  width: 5em;
+  height: 5em;
+  padding-right: 1em;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.align {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.icon {
+  width: 1.5em;
+}
+
+.header {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  text-align: right;
+}
+
+.layout {
+  width: 640px;
+  margin: auto;
+}
+
+.portfolio > ul > li {
+  width: 100%;
+}
+
+@media screen and (min-width: 640px) {
+  .layout {
+
+  }
+
+  @media screen and (min-width: 1200px) {
+    .layout {
+
+    }
+  }
+}
