@@ -1,0 +1,31 @@
+body {
+  color: var(--color-primary-text);
+
+  font-size: 24px;
+  font-family: BlinkMacSystemFont, -apple-system, "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Open Sans",
+    "Segoe UI", "Helvetica", "Arial", sans-serif;
+
+  line-height: var(--line-height);
+
+  background-color: var(--color-primary-base);
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+.capsule,
+time {
+  padding: 4px 0.5em 2px;
+
+  border: 1px solid var(--color-primary-text);
+  border-radius: 0.8em;
+}
+
+.text-shadow {
+  text-shadow: 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+}
