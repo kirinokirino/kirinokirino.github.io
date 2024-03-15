@@ -13,7 +13,7 @@ body {
 
 body::after {
 	content: "";
-	background: url("https://pp.userapi.com/c846122/v846122778/9f804/Xdas3AHV8b4.jpg");
+	background: url("bg.jpg");
 	opacity: 0.5;
 	top: 0;
 	left: 0;
