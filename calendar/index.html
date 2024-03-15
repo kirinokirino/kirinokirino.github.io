@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title> Calendar </title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body class="columns is-mobile">
+
+		<div class="column">
+			<button id="testplus" class="button">+</button>
+			<button id="testminus" class="button">-</button>
+		</div>
+
+		<div class="column is-narrow">
+			<div id="widget" class="box">
+				<h1 class="title">
+				<span class="current-month"></span>,
+				<span class="current-day"></span>,
+				<span class="current-year"></span>
+				</h1>
+				<h2 class="subtitle">
+				<span class="current-day-of-the-week"></span>
+				</h2>
+				<table id="cal" class="table is-hoverable">
+				</table>
+			</div>
+		</div>
+
+		<div class="column"></div>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+		<script>
+
+		Date.prototype.addDays = function(days) {
+			var date = new Date(this.valueOf());
+			date.setDate(date.getDate() + days);
+			return date;
+		}
+
+		function getMonthName(month) {
+			if (month === 0) return "Январь";
+			if (month === 1) return "Февраль";
+			if (month === 2) return "Март";
+			if (month === 3) return "Апрель";
+			if (month === 4) return "Май";
+			if (month === 5) return "Июнь";
+			if (month === 6) return "Июль";
+			if (month === 7) return "Август";
+			if (month === 8) return "Сентябрь";
+			if (month === 9) return "Октябрь";
+			if (month === 10) return "Ноябрь";
+			if (month === 11) return "Декабрь";
+		}
+
+		function getDayOfTheWeekName(dayOfTheWeek) {
+			if (dayOfTheWeek === 1) return "Понедельник";
+			if (dayOfTheWeek === 2) return "Вторник";
+			if (dayOfTheWeek === 3) return "Среда";
+			if (dayOfTheWeek === 4) return "Четверг";
+			if (dayOfTheWeek === 5) return "Пятница";
+			if (dayOfTheWeek === 6) return "Суббота";
+			if (dayOfTheWeek === 0) return "Воскресенье";
+		}
+
+		function weekIsStartingOnMonday(dayOfTheWeek) {
+			if (dayOfTheWeek === 0) return 6;
+			else return dayOfTheWeek-1;
+		}
+
+		function daysInThisMonth(today) {
+			return new Date(today.getFullYear(), today.getMonth()+1, 0).getDate();
+		}
+
+		function getCalendarRows(today) {
+			var result = '';
+			var offset = weekIsStartingOnMonday(today.getDay());
+			var date = today.getDate();
+			for (var row=0; row<6; row++) {
+			var week = '<tr>\n';
+				for (var col=0; col<7; col++) {
+					magic = date - offset + col - (14 - row*7);
+					if (magic > 0 && magic <= daysInThisMonth(today)) {
+						week += '<td>' + magic + '</td>\n';
+					} else if (magic <= 0) {
+						week += '<td>' + "❤️" + '</td>\n';
+					} else {
+						week += '<td>' + (magic - daysInThisMonth(today)) + '</td>\n';
+					}
+				}
+			result += week + '\n</tr>';
+			}
+			return result;
+		}
+
+		function buildPage(today) {
+			$('#cal').html(`
+			<tr>
+				<th>Пн</th>
+				<th>Вт</th>
+				<th>Ср</th>
+				<th>Чт</th>
+				<th>Пт</th>
+				<th>Сб</th>
+				<th>Вс</th>
+			</tr>
+			`);
+			$('#cal tr:first').after(getCalendarRows(today));
+			$("#cal td").filter( function() {
+				return $(this).text() === String(today.getDate());
+			}).toggleClass("today");
+			$(".current-month").text(getMonthName(today.getMonth()));
+			$(".current-day").text(today.getDate());
+			$(".current-year").text(today.getFullYear());
+			$(".current-day-of-the-week").text(getDayOfTheWeekName(today.getDay()));
+		}
+
+		$("#testplus").click(function() {
+			test++;
+			buildPage(today.addDays(test));
+		});
+
+		$("#testminus").click(function() {
+			test--;
+			buildPage(today.addDays(test));
+		});
+
+		var today = new Date(Date.now());
+		var test = 0;
+		buildPage(today.addDays(test));
+
+		</script>
+	</body>
+
+</html>

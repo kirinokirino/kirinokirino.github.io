@@ -1,0 +1,21 @@
+body {
+	background: url("https://pp.userapi.com/c830309/v830309945/14bf45/QbKdS-J1Pao.jpg");
+	height: 140vh;
+}
+
+#widget {
+	background: hsl(255, 10%, 96%);
+}
+
+#widget > * {
+	background: hsl(255, 10%, 96%);
+	padding-bottom: 0.5em;
+}
+
+#cal td:hover {
+	background: hsl(255, 20%, 86%);
+}
+
+.today {
+	background: hsl(204, 20%, 86%);
+}

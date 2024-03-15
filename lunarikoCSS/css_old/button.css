@@ -1,0 +1,36 @@
+button,
+.button {
+  padding: 0.2rem;
+
+  color: var(--color-primary-text);
+
+  background-color: argb(0, var(--color-primary-base));
+  border: 0.2rem solid var(--link-color);
+
+  -webkit-transition-duration: var(--link-transition);
+  transition-duration: var(--link-transition);
+}
+
+a.button {
+  padding: 0.4rem;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  button,
+  .button {
+    transition: none;
+  }
+}
+
+button.clear {
+  border: 0;
+}
+
+button:hover,
+.button:hover,
+button:focus,
+.button:focus {
+  color: var(--color-primary-accent);
+
+  background-color: var(--link-color);
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title> Kana-trainer </title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<section class="section">
+			<div class="box">
+				<div class="level">
+					<input id="button-run" class="button is-primary level-left" type="submit" value="Run!">
+					<div class="tabs is-toggle level-right">
+						<ul>
+							<li class="is-active">
+								<a id="english">
+									<span>English</span>
+								</a>
+							</li>
+							<li>
+								<a id="russian">
+									<span>Русский</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="control">
+					<textarea id="text" class="textarea" type="text" placeholder="Please paste text here, select language and kana syllables from the table below and then click Run!"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="box">
+		<div class="tabs is-toggle is-toggle-rounded is-fullwidth">
+			<ul>
+				<li>
+					<a id="hiragana">
+						<span>Hiragana</span>
+					</a>
+				</li>
+				<li>
+					<a id="katakana">
+						<span>Katakana</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div id="current-table" class=""></div>
+	</div>
+</section>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
