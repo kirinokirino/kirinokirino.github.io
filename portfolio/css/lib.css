@@ -258,7 +258,7 @@ body {
     place-items: center stretch;
   }
   
-  .card img {
+  .card img, .card video {
     width: 100%;
   }
   
