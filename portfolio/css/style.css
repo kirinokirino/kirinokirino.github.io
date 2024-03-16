@@ -11,12 +11,12 @@ ul {
 	padding: 0;
 }
 
-main {
-	padding: 0;
+video {
+	max-width: 95%;
 }
 
-.title {
-  width: 100%;
+main {
+	padding: 0;
 }
 
 .competencies {
@@ -57,6 +57,7 @@ main {
 .header {
   display: flex;
   gap: 1em;
+  justify-content: center;
   align-items: center;
   text-align: right;
 }
@@ -66,12 +67,13 @@ footer {
 }
 
 .layout {
-  width: 400px;
+  min-width: 320px;
   margin: auto;
 }
 
 .portfolio > ul > li {
-  width: 100%;
+  margin: 1em auto 0;
+  width: 90%;
 }
 
 @media screen and (min-width: 640px) {
