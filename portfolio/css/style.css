@@ -1,6 +1,16 @@
 body {
 	font-size: 18px;
 	line-height: 1.2em;
+	
+	font-family: "Roboto", sans-serif;
+    font-weight: 400;
+	font-style: normal;
+}
+
+h4, button {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
 }
 
 li {
@@ -13,6 +23,11 @@ ul {
 
 video {
 	max-width: 95%;
+	margin-bottom: 0.2em;
+}
+
+.card h4 {
+	border-top: 1px solid var(--color-primary-text);
 }
 
 main {
