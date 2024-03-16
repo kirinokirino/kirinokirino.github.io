@@ -85,6 +85,8 @@ footer {
 	min-width: 640px;
   }
   .competencies {
+  	width: 640px;
+  	margin: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -96,6 +98,7 @@ footer {
     }
 
     .competencies {
+    	width: 900px;
     	font-size: 1.3em;
     }
 
@@ -107,4 +110,9 @@ footer {
 	    gap: 1em;
     }
   }
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
