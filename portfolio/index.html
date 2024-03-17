@@ -30,7 +30,7 @@
             <li class=""><button class="">Game developer</button></li>
         </ul></aside>
         <main class="portfolio flex"><ul>
-            <li class="card">
+            <li id="creative_coding_card" class="card">
             <video muted loop autoplay playsinline disablepictureinpicture disableremoteplayback>
                 <source src="./assets/creative-coding.mp4" type="video/mp4">
                 Video not supported
@@ -38,7 +38,7 @@
             <h4>Creative coding</h4><p>
                 Making art, visualising systems / algorythms, simulating processes from nature or physics
             </p></li>
-            <li class="card">
+            <li id="japanese_card" class="card">
             <video muted loop autoplay playsinline disablepictureinpicture disableremoteplayback>
                 <source src="./assets/japanese.mp4" type="video/mp4">
                 Video not supported
@@ -46,7 +46,7 @@
             <h4>Japanese tools</h4><p>
                 Creating tools for my japanese studies: a dictionary, furigana (readings) generator, custom anki deck with links between kanji, etc 
             </p></li>
-            <li class="card">
+            <li id="prototypes_card" class="card">
             <video muted loop autoplay playsinline disablepictureinpicture disableremoteplayback>
                 <source src="./assets/prototypes.mp4" type="video/mp4">
                 Video not supported
@@ -54,7 +54,7 @@
             <h4>Game prototypes</h4><p>
                 Prototypes, low level graphical and audio tools, unfinished experiments
             </p></li>
-            <li class="card">
+            <li id="space_delivery_card" class="card">
             <video muted loop autoplay playsinline disablepictureinpicture disableremoteplayback>
                 <source src="./assets/space-delivery.mp4" type="video/mp4">
                 Video not supported
@@ -62,7 +62,7 @@
             <h4>Space delivery</h4><p>
                 A game jam entry made for wasm-4, a virtual retro game console for compiled languages
             </p></li>
-            <li class="card">
+            <li id="four_eared_fox_card" class="card">
             <video muted loop autoplay playsinline disablepictureinpicture disableremoteplayback>
                 <source src="./assets/four-eared-fox.mp4" type="video/mp4">
                 Video not supported
@@ -79,6 +79,95 @@
                 <li class="align"><img src="assets/phone.svg" class="icon" alt="Phone icon">+381 61 697 3816</li>
             </ul>
         </footer>
+        <div id="creative_coding" class="modal hide">
+            <div class="contents">
+                <video muted loop autoplay playsinline disablepictureinpicture disableremoteplayback>
+                    <source src="./assets/creative-coding.mp4" type="video/mp4">
+                    Video not supported
+                  </video>
+                <h4>Creative coding</h4><p>
+                    Short programs primarily targeted to achieve some visual or interactive result.
+                    
+                    <br>Processing is a creative-coding framework, language, and IDE based on java. Programs are called sketches and library of sketches is a sketchbook.
+                    <a href="https://github.com/kirinokirino/processing-sketchbook">Processing sketches</a>
+                    <br>p5 is a javascript library that tries to imitated Processing language, easily runnable from the browser.
+                    <a href="https://editor.p5js.org/kirinokirino/sketches">p5 sketches</a>
+                    <br>In Rust, I implemented my own low-level and extremely simple framework for creative coding: 
+                    <a href="https://github.com/kirinokirino/sketchrs">sketchrs</a>. Many more projects of mine can be put into this category. Its an interesting topic!
+                </p></li>
+            </div>
+        </div>
+        <div id="japanese" class="modal hide">
+            <div class="contents">
+                <video muted loop autoplay playsinline disablepictureinpicture disableremoteplayback>
+                    <source src="./assets/japanese.mp4" type="video/mp4">
+                    Video not supported
+                  </video>
+                <h4>Japanese tools</h4><p>
+                	I am learning languages as a hobby. When studying japanese, I had a couple of ideas for tools that would be nice to have by my side.
+                    <br>I used scripts in <a href="https://github.com/kirinokirino/JishoScripts">this repo</a> to crawl through jisho.org dictionary, to make a custom anki-deck (structuring relations between words).
+                    I also used the data from it in my <a href="https://github.com/kirinokirino/twitch_chat">Twitch chat</a> app, to generate transcriptions for japanese words.
+                    <br>At the start I also made two simple tools to learn japanese alphabet: <a href="https://github.com/kirinokirino/snappy-kana">Snappy kana</a> and <a href="https://github.com/kirinokirino/Kana-trainer">Kana trainer</a>.
+                </p></li>
+            </div>
+        </div>
+        <div id="prototypes" class="modal hide">
+            <div class="contents">
+                <video muted loop autoplay playsinline disablepictureinpicture disableremoteplayback>
+                    <source src="./assets/prototypes.mp4" type="video/mp4">
+                    Video not supported
+                  </video>
+                <h4>Game prototypes</h4><p>
+                	The way to try out a new idea is to make a prototype and play around with it yourself!
+                	
+                	
+                </p></li>
+            </div>
+        </div>
+        <div id="space_delivery" class="modal hide">
+            <div class="contents">
+                <video muted loop autoplay playsinline disablepictureinpicture disableremoteplayback>
+                    <source src="./assets/space-delivery.mp4" type="video/mp4">
+                    Video not supported
+                  </video>
+                <h4>Japanese tools</h4><p>
+                    Creating tools for my japanese studies: a dictionary, furigana (readings) generator, custom anki deck with links between kanji, etc 
+                </p></li>
+            </div>
+        </div>
+        <div id="four_eared_fox" class="modal hide">
+            <div class="contents">
+                <video muted loop autoplay playsinline disablepictureinpicture disableremoteplayback>
+                    <source src="./assets/four-eared-fox.mp4" type="video/mp4">
+                    Video not supported
+                  </video>
+                <h4>Creative coding</h4><p>
+                    Making art, visualising systems / algorythms, simulating processes from nature or physics
+                </p></li>
+            </div>
+        </div>
     </div>
+    <script>
+        document.querySelectorAll(".portfolio li").forEach((el, i) => {
+            let id = el.id;
+            el.addEventListener('click', () => {
+                showModal(id.replace("_card", ""));
+            })
+        });
+        function showModal(elementId) {
+            let modal = document.getElementById(elementId);
+            modal.classList.replace("hide", "show");
+            modal.addEventListener('click', () => {
+                hideModal(elementId);
+            })
+            window.addEventListener('scroll', () => {
+                hideModal(elementId);
+            })
+        }
+        function hideModal(elementId) {
+            let modal = document.getElementById(elementId);
+            modal.classList.replace("show", "hide");
+        }
+    </script>
 </body>
 </html>

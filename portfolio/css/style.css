@@ -25,8 +25,39 @@ video {
 	margin-bottom: 0.2em;
 }
 
+.card {
+	border-radius: 10%;
+	padding-bottom: 1em;
+	overflow: hidden;
+}
+
 .card h4 {
 	border-top: 1px solid var(--color-primary-text);
+}
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: #222;
+  z-index: 1000;
+  top: 0;
+  display: grid;
+  place-items: center;
+  line-height: 1em;
+}
+
+.modal .contents {
+  max-width: 600px;
+  font-size: 14px;
+}
+
+.modal .contents * {
+  width: 100%;
+}
+
+.modal .contents video {
+  max-height: 350px;
 }
 
 main {
@@ -129,4 +160,16 @@ footer {
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 400ms, opacity 400ms;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 400ms;
 }
