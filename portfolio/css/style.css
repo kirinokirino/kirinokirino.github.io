@@ -57,7 +57,7 @@ video {
 }
 
 .modal .contents video {
-  max-height: 350px;
+  max-height: 50vh;
 }
 
 main {
